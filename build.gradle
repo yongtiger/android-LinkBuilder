@@ -4,13 +4,13 @@ buildscript {
         setup = [
                 compileSdk : 30,
                 buildTools : "30.0.3",
-                minSdk     : 16,
+                minSdk     : 14,
                 targetSdk  : 30
         ]
 
         release = [
-                versionName: "0.0.1",   ///v0.0.1
-                versionCode: 1
+                versionName: "0.0.2",   ///v0.0.2
+                versionCode: 2
         ]
     }
 
