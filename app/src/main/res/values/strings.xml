@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">android-LinkBuilder</string>
+
+    <string name="test_string">
+        Testing the TextView-LinkBuilder library I made.\n\n
+
+        Follow @lukeklinker on Twitter for more info (Also to check out the regex matching.)\n\n
+
+        Matching numbers (more regex): 1 25 66 1220\n\n
+
+        Long click here for something special.\n\n
+
+        Should this be underlined? Yes No\n\n
+
+        This word is bold\n\n
+
+        This link has some prepended text.\n\n
+
+        While this link has some appended text.\n\n
+
+        Hope you enjoyed the demo :)\n\n
+
+        Check out our real apps on the Play Store
+    </string>
+</resources>
