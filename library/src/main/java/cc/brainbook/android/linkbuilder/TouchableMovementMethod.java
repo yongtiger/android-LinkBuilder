@@ -11,6 +11,7 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 public class TouchableMovementMethod extends LinkMovementMethod {
 
@@ -33,7 +34,12 @@ public class TouchableMovementMethod extends LinkMovementMethod {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             mPressedSpan = getPressedSpan(textView, spannable, event);
 
+            if (mPressedSpan == null) {
+                return true;
+            }
+
             mPressedSpan.setTouched(true);
+
             touched = true;
 
             new Handler().postDelayed(new Runnable() {
@@ -58,7 +64,7 @@ public class TouchableMovementMethod extends LinkMovementMethod {
         } else if (event.getAction() == MotionEvent.ACTION_MOVE) {
             TouchableBaseSpan touchedSpan = getPressedSpan(textView, spannable, event);
 
-            if (mPressedSpan != null && touchedSpan != mPressedSpan) {
+            if (mPressedSpan != null && touchedSpan != null && touchedSpan != mPressedSpan) {
                 mPressedSpan.setTouched(false);
                 mPressedSpan = null;
                 touched = false;
@@ -96,7 +102,7 @@ public class TouchableMovementMethod extends LinkMovementMethod {
      * @param event motion event that occurred
      * @return the touchable span that was pressed
      */
-    @NonNull
+    @Nullable
     private TouchableBaseSpan getPressedSpan(@NonNull TextView widget, @NonNull Spannable spannable, @NonNull MotionEvent event) {
 
         int x = (int) event.getX();
